@@ -2,7 +2,10 @@
 
 @section('content')
 
-<div id="chat" class="mx-auto mt-3" style="width:300px">
+<div id="chat" class="mx-auto mt-5" style="width:300px">
+    <br>
+    <br>
+  
 
 @foreach ($chat as $row)
     @if ($row->username==auth()->user()->username)
@@ -30,27 +33,21 @@
 @endforeach
 
 </div>
-<form action="{{url()->current()}}/add" method="POST" class="mx-auto mt-3" style="width:300px">
+<br>
+<br>
+<br>
+<form action="{{url()->current()}}/add" method="POST" class="form-inline mx-auto p-2 fixed-bottom bg-dark" >
     @csrf
-    <br>
-    <br>
-    <br>
-    <h1 class="d-block">
-        Chat
-    </h1>
 
-
-
-
-
-    <div class="form-group">
-      <input type="text" class="form-control" id="msg" name="msg" placeholder="text">
+    <div class="form-group d-inline mb-0">
+      <input type="text" class="form-control" id="msg" name="msg" placeholder="text"  style="min-width:72vw">
 
     </div>
 
 
-
-    <button type="submit" class="btn btn-primary">>></button>
+    <div class="form-group d-inline mb-0">
+    <button type="submit" class="btn btn-primary ml-1" style="min-width:2vw">>></button>
+</div>
   </form>
 
 @endsection
