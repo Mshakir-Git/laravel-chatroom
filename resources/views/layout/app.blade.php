@@ -64,19 +64,20 @@
             
         }
         body{
-           /* background-color:black;*/
+            background-color:black;
         }
 
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">Chat</a>
+        <a class="navbar-brand" href="{{route("home")}}">Chat</a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"  style="width: 1em;height: 1em;"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+            
+        <!--  <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="{{route("home")}}">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -89,12 +90,12 @@
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
-          </ul>
+          </ul> -->
           <!-- Right -->
           <ul class="navbar-nav  ml-auto">
               @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("login")}}">{{auth()->user()->username}}</a>
+                    <a class="nav-link" href="{{route("profile")}}">{{auth()->user()->username}}</a>
                 </li>
                 <li class="nav-item">
                     <form action="{{route("logout")}}" method="post">@csrf<input class="nav-link bg-transparent border-0" type="submit" value="LogOut"></form>

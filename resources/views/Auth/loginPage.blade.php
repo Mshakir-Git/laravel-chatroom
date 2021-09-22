@@ -36,11 +36,11 @@
 
 
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <input type="checkbox" name="remember_me" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Remember Me</label>
         </div>
         <br>
 
-        <button type="submit" class="btn btn-primary">LogIn</button>
+        <button type="submit" class="btn btn-primary mr-2">LogIn</button> or <a href="{{route('register')}}">Register</a>
       </form>
 @endsection

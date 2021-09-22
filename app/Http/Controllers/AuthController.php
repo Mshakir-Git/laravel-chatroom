@@ -30,7 +30,7 @@ class AuthController extends Controller
             "password"=>Hash::make($request->pass),
         ]);
         
-         Auth::attempt(['email' => $request->email, 'password' => $request->pass]);
+         Auth::attempt(['email' => $request->email, 'password' => $request->pass],$request->remember_me);
          return redirect()->route("home");
 
     }
@@ -40,7 +40,7 @@ class AuthController extends Controller
     }
 
     public function loginFunc(Request $request){
-       if(!Auth::attempt(['email' => $request->email, 'password' => $request->pass])){
+       if(!Auth::attempt(['email' => $request->email, 'password' => $request->pass],$request->remember_me)){
         return back()->with("status","Login failed");
        }    
        return redirect()->route("home");
@@ -49,5 +49,9 @@ class AuthController extends Controller
     public function logoutFunc(){
         auth()->logout();
         return back();
+    }
+
+    public function profilePage(){
+        return view("Auth.profile");
     }
 }

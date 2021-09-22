@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="chat" class="mx-auto mt-5" style="width:300px">
+<div id="chat" class="mx-auto mt-5 pl-1 pr-1" style="width:100%">
     <br>
     <br>
   
@@ -36,11 +36,11 @@
 <br>
 <br>
 <br>
-<form action="{{url()->current()}}/add" method="POST" class="form-inline mx-auto p-2 fixed-bottom bg-dark" >
+<form action="{{url()->current()}}/add" method="POST" class="form-inline mx-auto p-2 fixed-bottom bg-dark" style="display: flex; flex-direction: row;flex-wrap: nowrap;justify-content: space-evenly;" >
     @csrf
-
-    <div class="form-group d-inline mb-0">
-      <input type="text" class="form-control" id="msg" name="msg" placeholder="text"  style="min-width:72vw">
+    
+    <div class="form-group d-inline mb-0"    style="width: 95%;" >
+      <input type="text" class="form-control" id="msg" name="msg" placeholder="text"  style="width:100%">
 
     </div>
 
@@ -49,5 +49,6 @@
     <button type="submit" class="btn btn-primary ml-1" style="min-width:2vw">>></button>
 </div>
   </form>
+  <script>window.scrollTo(0,document.body.scrollHeight)</script>
 
 @endsection

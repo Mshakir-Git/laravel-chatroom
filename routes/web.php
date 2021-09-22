@@ -19,12 +19,14 @@ Route::get('/', function () {
     return redirect()->route("chatroom");
 })->name("home");
 
-Route::get('/register', [AuthController::class,"registerPage"])->name("register");
-Route::post('/register', [AuthController::class,"registerFunc"]);
+Route::get('/register', [AuthController::class,"registerPage"])->name("register")->middleware("guest");
+Route::post('/register', [AuthController::class,"registerFunc"])->middleware("guest");
 
-Route::get('/login', [AuthController::class,"loginPage"])->name("login");
-Route::post('/login', [AuthController::class,"loginFunc"]);
+Route::get('/login', [AuthController::class,"loginPage"])->name("login")->middleware("guest");
+Route::post('/login', [AuthController::class,"loginFunc"])->middleware("guest");
 Route::post('/logout', [AuthController::class,"logoutFunc"])->name("logout");
 
 Route::get('/chatroom', [MessageController::class,"chatPage"])->middleware("auth")->name("chatroom");
 Route::post('/chatroom/add', [MessageController::class,"addMessage"])->middleware("auth");
+
+Route::get('/profile', [AuthController::class,"profilePage"])->name("profile")->middleware("auth");
