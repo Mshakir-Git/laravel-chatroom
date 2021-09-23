@@ -64,7 +64,7 @@
             
         }
         body{
-            background-color:black;
+            background-color:rgb(231, 231, 231);
         }
 
     </style>
